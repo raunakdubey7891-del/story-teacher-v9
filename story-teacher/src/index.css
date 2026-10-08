@@ -1,0 +1,20 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{color-scheme:dark}
+body{@apply bg-paper text-ink font-sans antialiased}
+h1,h2,h3{@apply font-display tracking-tight}
+::selection{background:#FFC85755}
+select,input{@apply text-ink placeholder:text-ink/40}
+select option{background:#161A23;color:#ECEEF5}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{@apply outline outline-2 outline-offset-2 outline-sun}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Story scene animations */
+@keyframes st-bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+@keyframes st-pop{0%{transform:scale(.3) translateY(30px);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+@keyframes st-drift{0%{transform:translateX(-12%)}100%{transform:translateX(112%)}}
+@keyframes st-twinkle{0%,100%{opacity:.2;transform:scale(.7)}50%{opacity:1;transform:scale(1.15)}}
+@keyframes st-glow{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+.st-actor{animation:st-pop .6s cubic-bezier(.34,1.56,.64,1) both,st-bob 3.2s ease-in-out infinite;filter:drop-shadow(0 10px 10px rgba(0,0,0,.45));will-change:transform}
+.st-cloud{animation:st-drift linear infinite;will-change:transform}
+.st-star{animation:st-twinkle 2.4s ease-in-out infinite}
+.st-sun{animation:st-glow 4s ease-in-out infinite}
